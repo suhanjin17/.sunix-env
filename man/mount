@@ -1,0 +1,2 @@
+mount -t ntfs-3g -o uid=$(id -u),gid=$(id -g) UUID="<NTFS_UUID>" "/mnt/<MOUNT_POINT>"
+mount UUID="<FILESYSTEM_UUID>" "/mnt/<MOUNT_POINT>"

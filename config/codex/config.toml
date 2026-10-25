@@ -1,0 +1,10 @@
+[tui]
+# Signal turn completion to foot and Sway without an external notifier.
+notifications = ["agent-turn-complete"]
+notification_method = "bel"
+notification_condition = "unfocused"
+
+copy_on_select = "never"
+screen_reader_detection_done = true
+status_line = ["model-with-reasoning", "permissions", "weekly-limit", "used-tokens", "total-input-tokens", "total-output-tokens"]
+status_line_use_colors = true

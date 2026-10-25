@@ -1,0 +1,11 @@
+영역 복사: grim -g "$(slurp)" - | wl-copy
+영역 저장: grim -g "$(slurp)" capture.png
+전체 저장: grim capture.png
+전체 복사: grim - | wl-copy
+모니터 선택 저장: grim -g "$(slurp -o -r)" capture.png
+커서 포함 저장: grim -c capture.png
+3초 뒤 저장: sleep 3 && grim capture.png
+16:9 영역 저장: grim -g "$(slurp -a 16:9)" capture.png
+영역 JPEG 저장: grim -t jpeg -g "$(slurp)" capture.jpg
+저장 위치: 현재 작업 폴더
+slurp: Esc 취소, 드래그 중 Space로 영역 이동

@@ -1,0 +1,6 @@
+# Custom LS_COLORS for other-writable directories.
+if [ -x /usr/bin/dircolors ]; then
+    eval "$(dircolors -b)"
+    export LS_COLORS="${LS_COLORS}:ow=30;42"
+    alias ls='ls --color=auto'
+fi

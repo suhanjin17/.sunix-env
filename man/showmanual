@@ -1,0 +1,4 @@
+apt-mark showmanual |
+  xargs -r dpkg-query -W -f='${Installed-Size}\t${binary:Package}\n' |
+  sort -n |
+  awk '{printf "%8.1f MiB  %s\n", $1/1024, $2}'

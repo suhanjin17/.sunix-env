@@ -1,0 +1,13 @@
+#!/bin/bash
+set -euo pipefail
+
+if (( $# > 1 )); then
+    printf 'Usage: cap [FILE.png]\n' >&2
+    exit 2
+fi
+
+geometry=$(slurp)
+[[ -n "$geometry" ]] || exit 1
+output=${1:-capture-$(date +%Y%m%d-%H%M%S-%N).png}
+grim -g "$geometry" "$output"
+printf '%s\n' "$output"

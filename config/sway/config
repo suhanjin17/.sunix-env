@@ -1,0 +1,34 @@
+# Keep Debian's default key bindings, terminal, and session setup.
+include /etc/sway/config
+
+# Start the installed input method in Sway's session environment.
+exec fcitx5 -d
+
+# Reconnect Fcitx when an X11 window appears after Xwayland restarts.
+for_window [shell="xwayland"] exec fcitx5-remote -x
+
+
+# Change focus by clicking, rather than moving the pointer over a window.
+focus_follows_mouse no
+
+# Allow the pointer to reach floating windows while a Wine game has focus.
+seat seat0 pointer_constraint disable
+
+# Use the Korean-labelled right Alt key without holding Fn.
+input "type:keyboard" {
+    xkb_options korean:ralt_hangul
+}
+
+input "type:pointer" {
+	accel_profile flat
+	pointer_accel 0
+}
+
+# ----- Key Bindings
+
+bindsym --inhibited --no-repeat $mod+Shift+g \
+	border pixel 2, layout splith; bar bar-0 mode invisible; \
+	[con_id=__focused__ con_mark="^_headers_hidden$"] border normal, bar bar-0 mode dock; \
+	mark --add --toggle _headers_hidden
+
+bindsym $mod+Shift+s sticky toggle

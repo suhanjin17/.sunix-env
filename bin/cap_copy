@@ -1,0 +1,11 @@
+#!/bin/bash
+set -euo pipefail
+
+if (( $# != 0 )); then
+    printf 'Usage: cap_copy\n' >&2
+    exit 2
+fi
+
+geometry=$(slurp)
+[[ -n "$geometry" ]] || exit 1
+grim -g "$geometry" - | wl-copy --type image/png

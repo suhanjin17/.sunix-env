@@ -1,0 +1,2 @@
+ratbagctl list
+ratbagctl [device] dpi get
