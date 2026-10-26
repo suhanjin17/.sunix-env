@@ -31,4 +31,4 @@ bindsym --inhibited --no-repeat $mod+Shift+g \
 	[con_id=__focused__ con_mark="^_headers_hidden$"] border normal, bar bar-0 mode dock; \
 	mark --add --toggle _headers_hidden
 
-bindsym $mod+Shift+s sticky toggle
+bindsym $mod+Shift+s exec grim -g "$(slurp)" - | wl-copy
