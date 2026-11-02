@@ -1,0 +1,11 @@
+" Keep Vim state out of $HOME.
+let s:state_home = empty($XDG_STATE_HOME) ? expand('~/.local/state') : $XDG_STATE_HOME
+let &viminfofile = s:state_home . '/vim/viminfo'
+
+" Enable syntax highlighting and filetype detection
+syntax on
+filetype plugin indent on
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+set noexpandtab
